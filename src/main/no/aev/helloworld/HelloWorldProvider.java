@@ -2,13 +2,13 @@ package no.aev.helloworld;
 
 public class HelloWorldProvider {
 
-    private HelloWorldFactory helloWorldFactory;
+    private static final HelloWorldFactory HELLO_WORLD_FACTORY = new HelloWorldFactory();
 
-    public HelloWorldProvider() {
-        helloWorldFactory = new HelloWorldFactory();
+    // Shouldn't make instances of this class
+    private HelloWorldProvider() {
     }
 
-    public String get() {
-        return helloWorldFactory.create();
+    public static String get() {
+        return HELLO_WORLD_FACTORY.create();
     }
 }
